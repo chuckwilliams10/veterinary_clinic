@@ -1,0 +1,51 @@
+<%= form_for(@pet) do |f| %>
+    <% if @pet.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
+
+          <ul>
+            <% @pet.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="form_center">
+  <div class="field">
+    <%= f.label "Customer" %><br/>
+    <%= f.collection_select :customer_id, Profile.customer, :id, :name %>
+    </div>
+    <div class="field">
+      <%= f.label "Pet Name: " %><br />
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :type %><br />
+      <%=  f.select :pet_type, [['Dog','dog'],['Cat','cat'],['Bird','bird']] %>
+    </div>
+    <div class="field">
+      <%= f.label :breed %><br />
+      <%= f.text_field :breed %>
+    </div>
+    <div class="field">
+      <%= f.label :age %><br />
+      <%= f.text_field :age %>
+    </div>
+    <div class="field">
+      <%= f.label :weight %><br />
+      <%= f.text_field :weight %>
+    </div>
+    <div class="field">
+      <%= f.label "Appointment Date: " %><br />
+      <%= f.text_field :date_last_visit %>
+    </div>
+    <div class="field">
+      <%= f.label :reason %><br />
+      <%= f.text_area :reason, :rows => 10,:cols => 30 %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+    </div>
+<% end %>

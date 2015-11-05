@@ -1,0 +1,31 @@
+<div class="center hero-unit">
+<h3>Listing appointments</h3>
+
+<table border="1" align="center">
+  <tr>
+    <th>Customer</th>
+    <th>Pet</th>
+    <th>Visit Date</th>
+    <th>Doctor</th>
+    <th>Reminder </th>
+    <th>Visit Reason</th>
+  </tr>
+
+<% @appointments.each do |appointment| %>
+  <tr>
+    <td><%= appointment.customer_id %></td>
+    <td><%= appointment.pet_id %></td>
+    <td><%= appointment.visit_date %></td>
+    <td><%= appointment.doctor_id %></td>
+    <td><%= appointment.reminder %></td>
+    <td><%= appointment.visit_reason %></td>
+    <td><%= link_to 'Show', appointment %></td>
+    <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+
+<%= link_to 'New Appointment', new_appointment_path, class: "btn btn-small" if can? :new, current_user.profile 
+%>
+</div>

@@ -1,0 +1,45 @@
+<div class="center hero-unit">
+  <p>
+    <b>Customer:</b>
+    <%= @pet.profile.name %>
+  </p>
+
+  <p>
+    <b>Petname:</b>
+    <%= @pet.name %>
+  </p>
+
+  <p>
+    <b>Type:</b>
+    <%= @pet.pet_type %>
+  </p>
+
+  <p>
+    <b>Breed:</b>
+    <%= @pet.breed %>
+  </p>
+
+  <p>
+    <b>Age:</b>
+    <%= @pet.age %>
+  </p>
+
+  <p>
+    <b>Weight:</b>
+    <%= @pet.weight %>
+  </p>
+
+  <p>
+    <b>Dateapp:</b>
+    <%= @pet.date_last_visit %>
+  </p>
+
+  <p>
+    <b>Reason:</b>
+    <%= @pet.reason %>
+  </p>
+
+
+  <%= link_to 'Edit', edit_pet_path(@pet) %> |
+  <%= link_to 'Back', root_path %>
+</div>
