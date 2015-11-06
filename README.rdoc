@@ -1,9 +1,10 @@
 Veterinary clinic is basic Ruby on Rails  application that satisfies the
 following user stories:
 
-The application is authorized using Devise and authenticated by CanCan. The following user stories are implemented and have been tested completely
+The application is authorized using Devise and authenticated by CanCan. The following user stories are implemented and have been tested.
 
 Code Analyzer: RuboCop
+
 testing framework : Rspec
 
 
