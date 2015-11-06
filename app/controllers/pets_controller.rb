@@ -48,8 +48,6 @@ class PetsController < ApplicationController
     end
   end
 
-  # PUT /pets/1
-  # PUT /pets/1.json
   def update
     @pet = @profile.pets.find(params[:id])
 

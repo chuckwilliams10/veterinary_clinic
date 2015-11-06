@@ -3,17 +3,17 @@ RSpec.describe Pet, type: :model do
   let!(:pet) { FactoryGirl.create(:pet) }
 
 
-  describe "is_valid?" do
-    it "returns true for dog identifier" do
-      Pet.is_valid?("dog").should be true
+  describe 'is_valid?' do
+    it 'returns true for dog identifier' do
+      Pet.is_valid?('dog').should be true
     end
 
-    it "returns true for cat identifier" do
-      Pet.is_valid?("cat").should be true
+    it 'returns true for cat identifier' do
+      Pet.is_valid?('cat').should be true
     end
 
-    it "returns false for invalid kinds of pets" do
-      Pet.is_valid?("reptiles").should be false
+    it 'returns false for invalid kinds of pets' do
+      Pet.is_valid?('reptiles').should be false
     end
   end
 

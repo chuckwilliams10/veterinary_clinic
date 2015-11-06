@@ -3,7 +3,7 @@ class Pet < ActiveRecord::Base
 
   belongs_to :customer
   has_many :appointments
-  belongs_to :profile, :foreign_key => 'profile_id'
+  belongs_to :profile, foreign_key: 'profile_id'
 
 
   validates_presence_of :age, :breed, :customer_id, :date_last_visit, :name, :reason,:weight, :pet_type

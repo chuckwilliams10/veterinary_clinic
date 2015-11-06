@@ -3,7 +3,7 @@ class AppointmentsController < ApplicationController
   before_filter :get_profile!
 
   def index
-    @appointments = current_user.profile.appointments
+    @appointments = Appointment.all
     @appointments_by_date = @appointments.group_by(&:visit_date)
 
     respond_to do |format|
@@ -44,13 +44,26 @@ class AppointmentsController < ApplicationController
   end
 
   def show
-    @customer = current_user.profile
-    @appointment = @customer.appointments.find(params[:id])
-
-    @pet = Pet.find(@appointment.pet_id) if @appointment
+    @appointment = Appointment.find(params[:id])
+    @customer = @appointment.profile
+    @pet = @appointment.pet if @appointment
     respond_to do |format|
       format.html
       format.json { render json: @appointment }
+    end
+  end
+
+  def update
+    @appointment = Appointment.find(params[:id])
+
+    respond_to do |format|
+      if @appointment.update_attributes(validate_params)
+        format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @appointment.errors, status: :unprocessable_entity }
+      end
     end
   end
 

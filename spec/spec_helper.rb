@@ -4,6 +4,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'factory_girl'
 require 'shoulda-matchers'
+require 'capybara/rspec'
 
 
 # Requires supporting ruby files with custom matchers and macros, etc,
@@ -43,6 +44,7 @@ RSpec.configure do |config|
   RSpec.configure do |config|
     config.infer_spec_type_from_file_location!
     config.include Devise::TestHelpers, :type => :controller
+    config.include Capybara::DSL
   end
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction

@@ -33,7 +33,7 @@ group :development, :test do
 
   group :test do
     gem 'rspec-rails' # run rails generate rspec:install
-    # gem 'capybara'
+    gem 'capybara'
     gem 'selenium-webdriver'
     gem 'database_cleaner'
     gem 'shoulda-matchers', require: false
