@@ -25,7 +25,7 @@ class AppointmentsController < ApplicationController
 
 
   def edit
-    @appointment = current_user.profile.appointments.find(params[:id])
+    @appointment = Appointment.find(params[:id])
   end
 
   def create
